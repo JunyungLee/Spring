@@ -1,0 +1,7 @@
+jdk9 이후 모듈분리에 의해 @Resource 어노테이션 사용시
+pom.xml 에 추가할 것
+<dependency>
+    <groupId>javax.annotation</groupId>
+    <artifactId>javax.annotation-api</artifactId>
+    <version>1.3.1</version>
+</dependency>
