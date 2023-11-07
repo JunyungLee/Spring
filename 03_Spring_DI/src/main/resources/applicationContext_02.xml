@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- === 생성자를 이용한 의존성 주입(DI) === -->
+	<bean id="tv2Samsung" class="polymorphism02.SamsungTV">
+		<constructor-arg ref="sony" />
+		<constructor-arg value="1000000" />
+	</bean>
+	
+	<bean id="sony" class="polymorphism02.SonySpeaker"/>
+	
+	<!-- 생성자에 전달되는 값 순서 sony, 200, 100 -->
+	<bean id="tv2Samsung2" class="polymorphism02.SamsungTV">
+		<constructor-arg ref="sony" />
+		<constructor-arg value="200" type="int" />
+		<constructor-arg value="100" type="int" />
+	</bean>
+
+	<!-- 생성자에 전달되는 인수(파라미터값) 순서를 index 속성으로 변경(0부터)
+		전달되는 값 순서 sony, 200, 100 -->
+	<bean id="tv2Samsung3" class="polymorphism02.SamsungTV">
+		<constructor-arg ref="sony" index="0" />
+		<constructor-arg value="100" index="2" />
+		<constructor-arg value="200" index="1" />
+	</bean>
+	
+</beans>
+
+
+
+
+
+
