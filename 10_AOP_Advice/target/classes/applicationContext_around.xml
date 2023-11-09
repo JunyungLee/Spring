@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<context:component-scan base-package="com.spring.biz"></context:component-scan>
+	
+	<!--AOP 설정 (xmlns:aop 추가) -->
+	<!--Around : 비즈니스 로직 실행 전, 실행 후 적용할 어드바이스 -->
+	<bean id="around" class="com.spring.biz.common.AroundAdvice"></bean>
+	
+	<!--대상과 적용시점 연결  -->
+	<aop:config>
+		<!--대상 설정(포인트컷) -->
+		<aop:pointcut expression="execution(* com.spring.biz..*Impl.*(..))" id="allPointcut"/>
+		<aop:pointcut expression="execution(* com.spring.biz..*Impl.*(..))" id="getPointcut"/>
+		
+		<!--작업설정(연결 - 애스팩트)  -->
+		<aop:aspect ref="around">
+			<aop:around method="aroundLog" pointcut-ref="allPointcut"/>
+		</aop:aspect>
+	</aop:config>
+	
+</beans>
