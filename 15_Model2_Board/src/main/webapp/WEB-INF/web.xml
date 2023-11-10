@@ -10,7 +10,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>DispatcherServlet</servlet-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.do</url-pattern><!--.do요청이 들어오면 DispatcherServlet 요청  -->
 	</servlet-mapping>
 	
 </web-app>
