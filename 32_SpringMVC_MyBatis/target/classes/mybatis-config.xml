@@ -27,11 +27,12 @@
     </environment>
   </environments> -->
   
-  <mappers>
+  <!--applicationContext.xml에서 mapperLocations설정으로 대체  -->
+<!--   <mappers>
     <mapper resource="mappings/board/BoardMapper.xml"/>
     <mapper resource="mappings/user/UserMapper.xml"/>
   </mappers>
-  
+   -->
 </configuration>
 
 

@@ -29,4 +29,10 @@
 		</property>
 	</bean>  -->
 	
+	<!--정적 데이터 사용 위치 설정 (ex- HTML, CSS, JavaScript) -->
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+	<mvc:resources location="/resources/images/" mapping="/imgs/**" />
+	<mvc:resources location="/resources/css/" mapping="/css/**" />
+	<mvc:resources location="/resources/js/" mapping="/js/**" />
+	
 </beans>
