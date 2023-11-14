@@ -31,8 +31,8 @@ public class UserController {
 	}
 	
 	//requestMapping : get, post 둘다 처리 가능
-	@RequestMapping(value = "/login.do",method = RequestMethod.POST) //POST 방식 요청이 들어왔을 때만 처리 
-//	@PostMapping("/login.do") //4.3버전 부터 사용가능
+//	@RequestMapping(value = "/login.do",method = RequestMethod.POST) //POST 방식 요청이 들어왔을 때만 처리 
+	@PostMapping("/login.do") //4.3버전 부터 사용가능
 	public String login(UserVO vo) {
 		System.out.println(">>> 로그인 처리");
 		System.out.println("vo : " + vo);
@@ -47,7 +47,7 @@ public class UserController {
 
 		if (user != null) {
 			System.out.println(">> 로그인 성공!!!");
-			return "getBoardList.do";
+			return "redirect:/board/getBoardList.do";
 		} else {
 			System.out.println(">> 로그인 실패!!!");
 			return "login.jsp";
@@ -60,14 +60,14 @@ public class UserController {
 	@ModelAttribute("user") UserVO ---> 속성명 user 사용
 */	
 	
-	@RequestMapping(value = "/login.do", method = RequestMethod.GET) //GET 방식 요청이 들어왔을 떄만 처리 
-//	@GetMapping("/login.do") //위와 동일
+//	@RequestMapping(value = "/login.do", method = RequestMethod.GET) //GET 방식 요청이 들어왔을 떄만 처리 
+	@GetMapping("/login.do") 
 	
 	public String loginView(@ModelAttribute("user") UserVO vo) { //UserVO 에 Model명 부여 
 		System.out.println(">> login 화면으로 이동 - loginView()");
 		vo.setId("test");
 		vo.setPassword("test");
-		return "login.jsp"; //db 연동작업 안하고 단순히 페이지만 이동
+		return "user/login"; //db 연동작업 안하고 단순히 페이지만 이동
 	}
 	
 	@RequestMapping("/logout.do")

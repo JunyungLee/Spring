@@ -23,7 +23,7 @@
 	<div id="container">
 		<h1>${board.seq }번게시글 상세 보기</h1>
 		<p>
-			<a href="logout.do">로그아웃</a>
+			<a href="user/logout.do">로그아웃</a>
 		</p>
 		<form action="updateBoard.do" method="post">
 			<input type="hidden" name="seq" value="${board.seq }">
@@ -63,7 +63,7 @@
 			</table>
 		</form>
 		<p>
-			<a href="insertBoard.jsp">등록</a>
+			<a href="getBoardList.do">등록</a>
 			<a href="deleteBoard.do?seq=${board.seq }">삭제</a>
 			<a href="getBoardList.do">조회로 돌아가기</a>
 		</p>

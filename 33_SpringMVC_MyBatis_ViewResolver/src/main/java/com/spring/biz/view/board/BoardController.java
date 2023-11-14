@@ -73,7 +73,7 @@ public class BoardController {
 
 		model.addAttribute("board", board); //Model 객체 사용 View로 데이터 전달
 		
-		return "getBoardDetail.jsp";
+		return "/board/getBoardDetail";
 	}
 
 	// getBoardList
@@ -88,7 +88,7 @@ public class BoardController {
 
 		model.addAttribute("boardList", boardList);
 
-		return "getBoardList.jsp";
+		return "board/getBoardList";
 	}
 
 	// insertBoard
@@ -121,7 +121,12 @@ public class BoardController {
 		boardService.insertBoard(vo);
 
 		// 3.페이지 전환(목록페이지로 이동)
-		return "getBoardList.do";
+		return "redirect:getBoardList.do";
+	}
+	
+	@RequestMapping("/insertBoardreturn.do")
+	public String insertBoardReturn() {
+		return "/board/insertBoard";
 	}
 
 	// updateBoard
@@ -133,7 +138,7 @@ public class BoardController {
 		
 		boardService.updateBoard(vo);
 
-		return "getBoardList.do";
+		return "redirect:getBoardList.do";
 	}
 
 	// deleteBoard
@@ -144,6 +149,6 @@ public class BoardController {
 		boardService.deleteBoard(vo);
 		sessionStatus.setComplete();
 		
-		return "getBoardList.do";
+		return "redirect:getBoardList.do";
 	}
 }

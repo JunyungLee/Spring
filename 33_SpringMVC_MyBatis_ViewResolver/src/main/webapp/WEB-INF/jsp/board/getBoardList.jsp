@@ -82,7 +82,7 @@
 		</tbody>
 	</table>
 	
-	<p><a href="insertBoard.jsp">새 글 등록</a></p>
+	<p><a href="insertBoardreturn.do">새 글 등록</a></p>
 </div>
 
 </body>
